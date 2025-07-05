@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "claude-code": {
+            "command": "node",
+            "args": [
+                "claude-mcp-server.js"
+            ],
+            "env": {}
+        }
+    }
+}
