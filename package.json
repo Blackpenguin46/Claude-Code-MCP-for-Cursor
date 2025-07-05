@@ -1,0 +1,31 @@
+{
+    "name": "claude-code-mcp-cursor",
+    "version": "1.0.0",
+    "description": "MCP bridge to use Claude Code CLI with Cursor IDE, avoiding API costs",
+    "main": "claude-mcp-server.js",
+    "scripts": {
+        "start": "node claude-mcp-server.js",
+        "test": "echo \"Run: claude chat 'test'\" && claude chat \"What is 2+2?\""
+    },
+    "keywords": [
+        "claude",
+        "cursor",
+        "mcp",
+        "ai",
+        "ide",
+        "subscription"
+    ],
+    "author": "Sam Oakes",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Blackpenguin46/Claude-Code-MCP-for-Cursor.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Blackpenguin46/Claude-Code-MCP-for-Cursor/issues"
+    },
+    "homepage": "https://github.com/Blackpenguin46/Claude-Code-MCP-for-Cursor#readme"
+}
