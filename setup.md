@@ -80,10 +80,33 @@ bash ~/Desktop/setup-claude-mcp.sh
 1. **🔄 RESTART CURSOR COMPLETELY** (this is critical!)
 2. **Open the SAME project folder** you just set up
 3. **Go to Settings → Models**
-4. **Disable all other models** (GPT-4, Claude API, etc.) - leave only your custom model
+4. **Disable ALL models** (GPT-4, Claude API, etc.) - turn every toggle OFF
 5. **Go to Settings → Tools & Integrations → MCP Tools**
 6. **Verify "claude-code" shows "1 tools enabled"** (not "0 tools enabled")
 7. **Toggle it ON** if not already enabled
+
+### Step 4: Force Cursor to Use Your MCP Tool
+🚨 **CRITICAL**: Cursor may still try to use built-in models even with MCP enabled!
+
+**When starting a chat in Cursor:**
+1. **Look for a model/tool selector** in the chat interface
+2. **Explicitly select "claude-code" tool** instead of GPT-4 or other models
+3. **OR manually specify in your first message**: "Use the claude-code MCP tool to respond"
+
+### Step 5: Verify It's Working
+**Test with this exact message:**
+```
+Are you responding through Claude Code or an API?
+```
+
+**✅ Correct Response** (using your $20 plan):
+- Should mention Claude Code, Claude CLI, or your subscription
+- Should NOT mention GPT-4, OpenAI, or API usage
+
+**❌ Wrong Response** (using paid API):
+- Mentions GPT-4, OpenAI, or API
+- Says it's not Claude Code
+- **If you get this**: Go back to Settings → Models and disable ALL models
 
 ## Example Walkthrough
 
@@ -104,22 +127,34 @@ bash ~/Desktop/setup-claude-mcp.sh
 - **Run the setup script FROM INSIDE the project directory** you want to use Claude in
 - **RESTART Cursor completely** after setup (close and reopen)
 - **Open the EXACT project folder** you ran the script in
-- **Disable other models** in Cursor to avoid confusion and costs
+- **Disable ALL models** in Settings → Models (turn every toggle OFF)
+- **Explicitly select claude-code tool** when chatting
+- **Test with verification message** to confirm you're using Claude Code
 
 ### ❌ Common Mistakes:
 - Running script from wrong directory
 - Forgetting to restart Cursor
 - Opening wrong folder in Cursor
-- Leaving other paid models enabled
+- Leaving ANY paid models enabled in Settings → Models
+- Not explicitly selecting the claude-code tool when chatting
+- Assuming MCP will be used automatically (it often won't be!)
+
+### 🧪 Always Test First:
+Before doing any real work, **ALWAYS** test with:
+```
+Are you responding through Claude Code or an API?
+```
+If you get the wrong answer, you're using paid APIs instead of your subscription!
 
 ## Troubleshooting
 
 | Problem | Solution |
 |---------|----------|
+| Gets GPT-4 response instead of Claude | Disable ALL models in Settings → Models, explicitly select claude-code tool |
 | "0 tools enabled" | Restart Cursor, check you opened correct project folder |
+| "Are you responding through Claude Code?" gets wrong answer | You're using paid APIs - disable all models, select claude-code tool |
 | "Command not found: claude" | Install Claude Code CLI |
 | MCP server won't start | Check Node.js version, file permissions |
-| Still using API/paid models | Disable all models except your custom Claude proxy |
 | Script doesn't work | Use full path: `bash ~/Desktop/setup-claude-mcp.sh` |
 
 ## File Structure After Setup
